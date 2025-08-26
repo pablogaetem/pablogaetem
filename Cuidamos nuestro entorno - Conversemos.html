@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuidamos nuestro entorno – desde “Conversemos”</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #e3f2fd, #c8e6c9);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .presentation-container {
+            width: 90vw;
+            max-width: 1200px;
+            height: 50.625vw;
+            max-height: 675px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            padding: 40px 60px;
+            display: flex;
+            flex-direction: column;
+        }
+        .slide.active {
+            opacity: 1;
+        }
+        h1 {
+            font-size: 48px;
+            color: #0d3b66;
+            margin-bottom: 20px;
+        }
+        .content {
+            flex: 1;
+            font-size: 32px;
+            color: #074646;
+            line-height: 1.4;
+        }
+        .bullet-list {
+            list-style-type: disc;
+            margin-left: 40px;
+        }
+        .image-placeholder {
+            border: 2px dashed #90a4ae;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #607d8b;
+            margin-left: 40px;
+            padding: 20px;
+            text-align: center;
+        }
+        .two-columns {
+            display: flex;
+            gap: 40px;
+            flex: 1;
+        }
+        .column {
+            flex: 1;
+        }
+        table {
+            width: 100%;
+            height: 100%;
+            border-collapse: collapse;
+        }
+        td {
+            border: 2px solid #90a4ae;
+            width: 50%;
+            text-align: center;
+            font-size: 32px;
+            color: #074646;
+        }
+        .checklist li::marker {
+            content: '✔ ';
+            color: #388e3c;
+        }
+        .icon-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+            border: 2px dashed #90a4ae;
+            font-size: 24px;
+            color: #607d8b;
+            text-align: center;
+        }
+        .centered {
+            text-align: center;
+            justify-content: center;
+        }
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+            color: #607d8b;
+        }
+        .nav-container {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+        }
+        .nav-btn {
+            background: #4db6ac;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffffff;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .nav-btn:disabled {
+            background: #b0bec5;
+            cursor: not-allowed;
+        }
+        .slide-counter {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.8);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 16px;
+            color: #074646;
+            font-weight: bold;
+        }
+        .step {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+<div class="presentation-container">
+    <div class="slide-counter"><span id="current-slide">1</span>/15</div>
+
+    <!-- Slide 1 -->
+    <div class="slide slide-1 active">
+        <h1>Conversemos: ¿Cómo cuidamos nuestro colegio?</h1>
+        <div class="content" style="display:flex;">
+            <ul class="bullet-list">
+                <li class="step">Observa la imagen.</li>
+                <li class="step">¿En qué condiciones está el colegio/sala?</li>
+                <li class="step">¿Qué les parece ese estado?</li>
+                <li class="step">¿Quiénes son responsables?</li>
+            </ul>
+            <div class="image-placeholder">Imagen: fachada de colegio; contraste entre sector limpio y sector con papeles (ilustración escolar)</div>
+        </div>
+        <div class="footer">Religión 1° Básico – Unidad 4</div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide slide-2">
+        <h1>Cerremos los ojos e imaginemos…</h1>
+        <div class="content">
+            <ul class="bullet-list">
+                <li class="step">¿Cómo estaba la escuela al comenzar el día?</li>
+                <li class="step">¿Cómo estaba la sala de clases?</li>
+                <li class="step">¿Qué pasó durante el día? ¿Por qué cambió?</li>
+            </ul>
+        </div>
+        <div class="footer">Religión 1° Básico – Unidad 4</div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide slide-3">
+        <h1>Mensaje clave</h1>
+        <div class="content centered" style="font-size:40px;">
+            <p>"Vivir y trabajar en un lugar limpio y agradable es tarea de todos."</p>
+            <p style="margin-top:20px; font-size:32px;">Seamos conscientes y cuidemos nuestros espacios.</p>
+        </div>
+        <div class="footer">Religión 1° Básico – Unidad 4</div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slide slide-4">
+        <h1>Aprendamos: Ricardo cuida su entorno</h1>
+        <div class="content" style="display:flex;">
+            <div style="flex:1;">Ricardo tiene 7 años y, con su familia, cuida su hogar, su vecindario y su colegio con respeto y responsabilidad.</div>
+            <div class="image-placeholder">Imagen: niño y familia realizando acciones de cuidado (regar, ordenar, reciclar)</div>
+        </div>
+        <div class="footer">Religión 1° Básico – Unidad 4</div>
+    </div>
+
+    <!-- Slide 5 -->
+    <div class="slide slide-5">
+        <h1>En el vecindario</h1>
+        <div class="content" style="display:flex;">
+            <div style="flex:1;">
+                <p>¿Qué hace Ricardo para cuidar su vecindario?</p>
+                <p style="margin-top:20px; font-style:italic;">Ricardo ____ para…</p>
+            </div>
+            <div class="image-placeholder">Imagen: contenedores de reciclaje; plaza o vereda limpia</div>
+        </div>
+        <div class="footer">Religión 1° Básico – Unidad 4</div>
+    </div>
+
+    <!-- Slide 6 -->
+    <div class="slide slide-6">
+        <h1>En la sala y en el colegio</h1>
+        <div class="content two-columns">
+            <div class="column">
+                <h2 style="font-size:36px; color:#0d3b66;">En la sala</h2>
+                <ul class="bullet-list">
+                    <li class="step">Ordenar materiales</li>
+                    <li class="step">Cuidar murales</li>
+                    <li class="step">Levantar papeles</li>
+                </ul>
+            </div>
+            <div class="column">
+                <h2 style="font-size:36px; color:#0d3b66;">En el colegio</h2>
+                <ul class="bullet-list">
+                    <li class="step">Respetar patios</li>
+                    <li class="step">Usar basureros</li>
+                    <li class="step">Cuidar plantas</li>
+                </ul>
+            </div>
+        </div>
+        <p style="font-size:28px; margin-top:20px;">Con su curso, Ricardo ____</p>
+        <div class="footer">Religión 1° Básico – Unidad 4</div>
+    </div>
+
+    <!-- Slide 7 -->
+    <div class="slide slide-7">
+        <h1>En la casa</h1>
+        <div class="content" style="display:flex;">
+            <div style="flex:1;">
+                <p>¿Qué acciones de cuidado ves? ¿Cuáles hacemos en nuestra casa?</p>
+            </div>
+            <div class="image-placeholder">Imagen: niño barriendo/ordenando estante; mamá o adulto acompañando</div>
+        </div>
+        <div class="footer">Religión 1° Básico – Unidad 4</div>
+    </div>
+
+    <!-- Slide 8 -->
+    <div class="slide slide-8">
+        <h1>Actividad 2: Acciones de cuidado</h1>
+        <div class="content">
+            <p>Organización: grupos de 4 (lector, escritor, dibujante, vocero).</p>
+            <p style="margin-top:20px;">Encargo: En una cartulina, escriban y dibujen 3 acciones para cada lugar: Casa, Vecindario, Curso, Colegio.</p>
+        </div>
+        <div class="footer">Religión 1° Básico – Unidad 4</div>
+    </div>
+
+    <!-- Slide 9 -->
+    <div class="slide slide-9">
+        <h1>Plantilla de trabajo</h1>
+        <div class="content">
+            <table>
+                <tr>
+                    <td>Casa</td>
+                    <td>Vecindario</td>
+                </tr>
+                <tr>
+                    <td>Curso</td>
+                    <td>Colegio</td>
+                </tr>
+            </table>
+            <p style="margin-top:20px; font-size:28px;">Verbo + dibujo (reciclar, regar, ordenar, pedir que no boten basura…).</p>
+        </div>
+        <div class="footer">Religión 1° Básico – Unidad 4</div>
+    </div>
+
+    <!-- Slide 10 -->
+    <div class="slide slide-10">
+        <h1>Criterios de éxito</h1>
+        <div class="content">
+            <ul class="bullet-list checklist">
+                <li class="step">Al menos 3 acciones por cuadro.</li>
+                <li class="step">Usamos verbos de acción.</li>
+                <li class="step">El vocero explica 1 acción por cuadro.</li>
+            </ul>
+        </div>
+        <div class="footer">Religión 1° Básico – Unidad 4</div>
+    </div>
+
+    <!-- Slide 11 -->
+    <div class="slide slide-11">
+        <h1>Apoyos NEE/PIE</h1>
+        <div class="content">
+            <div class="icon-grid">
+                <div class="icon">Icono: regar</div>
+                <div class="icon">Icono: barrer</div>
+                <div class="icon">Icono: reciclar</div>
+                <div class="icon">Icono: ordenar</div>
+                <div class="icon">Icono: no botar basura</div>
+                <div class="icon">Icono: pedir por favor</div>
+            </div>
+            <p style="margin-top:20px;">"Yo voy a ___"; "Con mi curso ___".</p>
+        </div>
+        <div class="footer">Religión 1° Básico – Unidad 4</div>
+    </div>
+
+    <!-- Slide 12 -->
+    <div class="slide slide-12">
+        <h1>Actividad 3: Mi compromiso de este mes</h1>
+        <div class="content">
+            <ul class="bullet-list">
+                <li class="step">Regar las plantas</li>
+                <li class="step">No pisar el pasto</li>
+                <li class="step">Ayudar en la casa</li>
+                <li class="step">No botar basura</li>
+                <li class="step">Pedir a otros que cuiden su entorno</li>
+            </ul>
+            <p style="margin-top:20px; font-style:italic;">Me comprometo a __________ en __________ (casa/sala/colegio).</p>
+        </div>
+        <div class="footer">Religión 1° Básico – Unidad 4</div>
+    </div>
+
+    <!-- Slide 13 -->
+    <div class="slide slide-13">
+        <h1>Oración</h1>
+        <div class="content centered" style="font-size:32px;">
+            <p>"Gracias, Señor, por este mundo maravilloso: por el cielo estrellado, por los campos floridos, por el océano inmenso y por todos los que lo habitan y lo cuidan. Ayúdame a cuidar tu creación cada día. Amén."</p>
+        </div>
+        <div class="footer">Religión 1° Básico – Unidad 4</div>
+    </div>
+
+    <!-- Slide 14 -->
+    <div class="slide slide-14">
+        <h1>Descubre el mensaje</h1>
+        <div class="content">
+            <p>Completa los casilleros escribiendo la letra según el símbolo.</p>
+            <p style="margin-top:20px;">(Incluye leyenda símbolos→letras + 2 ejemplos resueltos al inicio)</p>
+        </div>
+        <div class="footer">Religión 1° Básico – Unidad 4</div>
+    </div>
+
+    <!-- Slide 15 -->
+    <div class="slide slide-15">
+        <h1>Cierre y Aprendo en familia</h1>
+        <div class="content">
+            <ul class="bullet-list">
+                <li class="step">Di una acción que harás esta semana.</li>
+                <li class="step">Tarea: Muestra “Mi lugar en el mundo” en casa.</li>
+                <li class="step">Pregunta en tu familia: ¿Cómo cuidaban su entorno cuando eran pequeños?</li>
+                <li class="step">Anota 1 ejemplo para compartir mañana.</li>
+            </ul>
+        </div>
+        <div class="footer">Religión 1° Básico – Unidad 4</div>
+    </div>
+
+    <div class="nav-container">
+        <button class="nav-btn" id="prev-btn" onclick="previousSlide()">← Anterior</button>
+        <button class="nav-btn" id="next-btn" onclick="nextSlide()">Siguiente →</button>
+    </div>
+</div>
+
+<script>
+    let currentSlide = 1;
+    let currentStep = 0;
+    const totalSlides = 15;
+
+    function updateSlideDisplay() {
+        document.querySelectorAll('.slide').forEach(slide => {
+            slide.classList.remove('active');
+        });
+        const slide = document.querySelector(`.slide-${currentSlide}`);
+        slide.classList.add('active');
+
+        const steps = slide.querySelectorAll('.step');
+        steps.forEach((step, index) => {
+            step.style.visibility = index < currentStep ? 'visible' : 'hidden';
+        });
+
+        document.getElementById('current-slide').textContent = currentSlide;
+
+        document.getElementById('prev-btn').disabled = currentSlide === 1 && currentStep === 0;
+        document.getElementById('next-btn').disabled = currentSlide === totalSlides && currentStep === steps.length;
+    }
+
+    function nextSlide() {
+        const slide = document.querySelector(`.slide-${currentSlide}`);
+        const steps = slide.querySelectorAll('.step');
+        if (currentStep < steps.length) {
+            steps[currentStep].style.visibility = 'visible';
+            currentStep++;
+            updateSlideDisplay();
+        } else if (currentSlide < totalSlides) {
+            currentSlide++;
+            currentStep = 0;
+            updateSlideDisplay();
+        }
+    }
+
+    function previousSlide() {
+        const slide = document.querySelector(`.slide-${currentSlide}`);
+        const steps = slide.querySelectorAll('.step');
+        if (currentStep > 0) {
+            currentStep--;
+            steps[currentStep].style.visibility = 'hidden';
+            updateSlideDisplay();
+        } else if (currentSlide > 1) {
+            currentSlide--;
+            const prevSlide = document.querySelector(`.slide-${currentSlide}`);
+            currentStep = prevSlide.querySelectorAll('.step').length;
+            updateSlideDisplay();
+        }
+    }
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowRight' || event.key === ' ') {
+            nextSlide();
+        } else if (event.key === 'ArrowLeft') {
+            previousSlide();
+        }
+    });
+
+    updateSlideDisplay();
+</script>
+
+</body>
+</html>
